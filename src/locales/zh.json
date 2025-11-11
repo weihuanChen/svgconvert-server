@@ -1,0 +1,25 @@
+{
+  "upload": {
+    "success": "文件上传成功",
+    "failed": "文件上传失败",
+    "invalid_format": "不支持的文件格式",
+    "file_too_large": "文件大小超过限制（最大: 20MB）"
+  },
+  "conversion": {
+    "pending": "等待转换",
+    "processing": "转换中...",
+    "completed": "转换完成",
+    "failed": "转换失败"
+  },
+  "download": {
+    "ready": "下载已准备就绪",
+    "not_found": "文件未找到",
+    "expired": "文件已过期"
+  },
+  "errors": {
+    "task_not_found": "任务未找到",
+    "internal_error": "内部服务器错误",
+    "invalid_params": "无效的参数",
+    "processing_error": "处理过程中发生错误"
+  }
+}

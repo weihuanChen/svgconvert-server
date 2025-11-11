@@ -1,0 +1,25 @@
+{
+  "upload": {
+    "success": "ファイルのアップロードに成功しました",
+    "failed": "ファイルのアップロードに失敗しました",
+    "invalid_format": "サポートされていないファイル形式です",
+    "file_too_large": "ファイルサイズが大きすぎます（最大: 20MB）"
+  },
+  "conversion": {
+    "pending": "変換待ち",
+    "processing": "変換中...",
+    "completed": "変換完了",
+    "failed": "変換に失敗しました"
+  },
+  "download": {
+    "ready": "ダウンロード準備完了",
+    "not_found": "ファイルが見つかりません",
+    "expired": "ファイルの有効期限が切れました"
+  },
+  "errors": {
+    "task_not_found": "タスクが見つかりません",
+    "internal_error": "内部サーバーエラー",
+    "invalid_params": "無効なパラメータ",
+    "processing_error": "処理エラーが発生しました"
+  }
+}

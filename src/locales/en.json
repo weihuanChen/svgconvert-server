@@ -1,0 +1,25 @@
+{
+  "upload": {
+    "success": "File uploaded successfully",
+    "failed": "File upload failed",
+    "invalid_format": "Unsupported file format",
+    "file_too_large": "File size exceeds limit (max: 20MB)"
+  },
+  "conversion": {
+    "pending": "Pending conversion",
+    "processing": "Converting...",
+    "completed": "Conversion completed",
+    "failed": "Conversion failed"
+  },
+  "download": {
+    "ready": "Download ready",
+    "not_found": "File not found",
+    "expired": "File expired"
+  },
+  "errors": {
+    "task_not_found": "Task not found",
+    "internal_error": "Internal server error",
+    "invalid_params": "Invalid parameters",
+    "processing_error": "Processing error occurred"
+  }
+}

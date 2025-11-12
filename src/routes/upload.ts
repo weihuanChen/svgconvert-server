@@ -65,9 +65,13 @@ upload.post('/', async (c: Context) => {
     const inputFormat = normalizeFormat(inputExt);
 
     // Parse conversion parameters
+    const receivedFormat = formData.get('outputFormat');
+    logger.info(`📥 Received outputFormat from frontend: "${receivedFormat}" (type: ${typeof receivedFormat})`);
+    
     const outputFormat = normalizeFormat(
       (formData.get('outputFormat') as string) || 'png'
     );
+    logger.info(`✓ After normalization: "${outputFormat}"`);
 
     if (!isValidFormat(outputFormat)) {
       return c.json(

@@ -1,0 +1,369 @@
+{
+  "info": {
+    "name": "SVG Convert Server API",
+    "description": "SVG 转换服务 API 集合 - 支持多种文件格式转换",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "version": "1.0.0"
+  },
+  "item": [
+    {
+      "name": "基础端点",
+      "item": [
+        {
+          "name": "服务信息",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/",
+              "host": ["{{baseUrl}}"],
+              "path": [""]
+            },
+            "description": "获取服务版本和基础信息"
+          }
+        },
+        {
+          "name": "健康检查",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["health"]
+            },
+            "description": "检查服务器是否正常运行"
+          }
+        }
+      ]
+    },
+    {
+      "name": "文件转换",
+      "item": [
+        {
+          "name": "上传并转换 - SVG to PNG",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept-Language",
+                "value": "zh",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": []
+                },
+                {
+                  "key": "outputFormat",
+                  "value": "png",
+                  "type": "text"
+                },
+                {
+                  "key": "width",
+                  "value": "1024",
+                  "type": "text"
+                },
+                {
+                  "key": "height",
+                  "value": "768",
+                  "type": "text"
+                },
+                {
+                  "key": "quality",
+                  "value": "90",
+                  "type": "text"
+                },
+                {
+                  "key": "backgroundColor",
+                  "value": "#ffffff",
+                  "type": "text"
+                },
+                {
+                  "key": "maintainAspectRatio",
+                  "value": "true",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/upload",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "upload"]
+            },
+            "description": "上传 SVG 文件并转换为 PNG"
+          }
+        },
+        {
+          "name": "上传并转换 - SVG to JPG",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept-Language",
+                "value": "zh",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": []
+                },
+                {
+                  "key": "outputFormat",
+                  "value": "jpg",
+                  "type": "text"
+                },
+                {
+                  "key": "width",
+                  "value": "1024",
+                  "type": "text"
+                },
+                {
+                  "key": "quality",
+                  "value": "85",
+                  "type": "text"
+                },
+                {
+                  "key": "backgroundColor",
+                  "value": "#ffffff",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/upload",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "upload"]
+            },
+            "description": "上传 SVG 文件并转换为 JPG"
+          }
+        },
+        {
+          "name": "上传并转换 - PNG to SVG",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept-Language",
+                "value": "zh",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": []
+                },
+                {
+                  "key": "outputFormat",
+                  "value": "svg",
+                  "type": "text"
+                },
+                {
+                  "key": "colors",
+                  "value": "16",
+                  "type": "text"
+                },
+                {
+                  "key": "smoothing",
+                  "value": "0.5",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/upload",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "upload"]
+            },
+            "description": "上传 PNG 文件并矢量化为 SVG"
+          }
+        },
+        {
+          "name": "上传并转换 - 转为 PDF",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept-Language",
+                "value": "zh",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": []
+                },
+                {
+                  "key": "outputFormat",
+                  "value": "pdf",
+                  "type": "text"
+                },
+                {
+                  "key": "width",
+                  "value": "1024",
+                  "type": "text"
+                },
+                {
+                  "key": "height",
+                  "value": "768",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/upload",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "upload"]
+            },
+            "description": "上传文件并转换为 PDF"
+          }
+        }
+      ]
+    },
+    {
+      "name": "任务管理",
+      "item": [
+        {
+          "name": "查询转换状态",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept-Language",
+                "value": "zh",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/status/{{taskId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "status", "{{taskId}}"]
+            },
+            "description": "查询任务的当前转换状态"
+          }
+        },
+        {
+          "name": "下载转换结果",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept-Language",
+                "value": "zh",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/download/{{taskId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "download", "{{taskId}}"]
+            },
+            "description": "下载已转换完成的文件"
+          }
+        },
+        {
+          "name": "手动清理任务",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept-Language",
+                "value": "zh",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/cleanup/{{taskId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "cleanup", "{{taskId}}"]
+            },
+            "description": "手动删除任务数据和临时文件（可选）"
+          }
+        }
+      ]
+    },
+    {
+      "name": "队列处理",
+      "item": [
+        {
+          "name": "处理队列任务",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept-Language",
+                "value": "zh",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"taskId\": \"550e8400-e29b-41d4-a716-446655440000\",\n  \"sourceFileKey\": \"input/2025-01-15/550e8400-e29b-41d4-a716-446655440000/document.svg\",\n  \"fileName\": \"document.svg\",\n  \"sourceFormat\": \"svg\",\n  \"options\": {\n    \"targetFormat\": \"png\",\n    \"width\": 1024,\n    \"height\": 768,\n    \"quality\": 90,\n    \"backgroundColor\": \"#ffffff\",\n    \"maintainAspectRatio\": true\n  },\n  \"callbackUrl\": \"https://api.example.com/callback\",\n  \"callbackToken\": \"secret-token-123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/queue/process",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "queue", "process"]
+            },
+            "description": "处理来自 Cloudflare Queues 的任务消息"
+          }
+        },
+        {
+          "name": "查询队列任务状态",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept-Language",
+                "value": "zh",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/queue/status/{{taskId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "queue", "status", "{{taskId}}"]
+            },
+            "description": "查询通过队列处理的任务状态"
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    },
+    {
+      "key": "taskId",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}
+

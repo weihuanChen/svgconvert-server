@@ -129,6 +129,7 @@ upload.post('/', async (c: Context) => {
     return c.json({
       taskId: task.taskId,
       status: task.status,
+      outputFormat: task.outputFormat,
       message: getTranslation(locale, 'upload.success'),
     });
   } catch (error) {

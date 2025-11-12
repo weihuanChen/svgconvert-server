@@ -24,6 +24,7 @@ status.get('/:taskId', async (c: Context) => {
   return c.json({
     taskId: task.taskId,
     status: task.status,
+    outputFormat: task.outputFormat,
     error: task.error,
   });
 });

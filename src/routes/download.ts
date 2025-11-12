@@ -74,11 +74,14 @@ download.get('/:taskId', async (c: Context) => {
     // Read file
     const fileBuffer = await fs.readFile(task.outputFile);
 
+    // Get file extension from actual file path (more reliable than task.outputFormat)
+    const actualExt = path.extname(task.outputFile).toLowerCase().slice(1);
+
     // Get MIME type
     const mimeType = mime.lookup(task.outputFile) || 'application/octet-stream';
 
-    // Generate download filename
-    const filename = `converted_${taskId}.${task.outputFormat}`;
+    // Generate download filename using actual file extension
+    const filename = `converted_${taskId}.${actualExt}`;
 
     logger.info(`Downloading file: ${filename}`);
 

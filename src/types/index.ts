@@ -1,4 +1,4 @@
-export type ConversionFormat = 'png' | 'jpg' | 'jpeg' | 'svg' | 'pdf';
+export type ConversionFormat = 'png' | 'jpg' | 'jpeg' | 'svg' | 'pdf' | 'webp' | 'gif';
 
 export type TaskStatus = 'PENDING' | 'PROCESSING' | 'COMPLETED' | 'ERROR';
 

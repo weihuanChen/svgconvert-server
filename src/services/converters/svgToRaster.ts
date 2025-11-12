@@ -66,6 +66,14 @@ export async function svgToRaster({
         compressionLevel: 9,
         quality: params.quality || 90,
       });
+    } else if (params.outputFormat === 'webp') {
+      image = image.webp({
+        quality: params.quality || 85,
+      });
+    } else if (params.outputFormat === 'gif') {
+      image = image.gif({
+        // GIF options if needed
+      });
     }
 
     // Save the output

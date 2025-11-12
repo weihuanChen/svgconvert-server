@@ -16,7 +16,7 @@ export function getFileExtension(filename: string): string {
 }
 
 export function isValidFormat(format: string): format is ConversionFormat {
-  const validFormats: ConversionFormat[] = ['png', 'jpg', 'jpeg', 'svg', 'pdf'];
+  const validFormats: ConversionFormat[] = ['png', 'jpg', 'jpeg', 'svg', 'pdf', 'webp', 'gif'];
   return validFormats.includes(format as ConversionFormat);
 }
 

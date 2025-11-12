@@ -24,13 +24,13 @@ export async function convertFile({
   );
 
   try {
-    // SVG to raster (PNG/JPG)
-    if (inputFormat === 'svg' && (outputFormat === 'png' || outputFormat === 'jpg')) {
+    // SVG to raster (PNG/JPG/WebP/GIF)
+    if (inputFormat === 'svg' && (outputFormat === 'png' || outputFormat === 'jpg' || outputFormat === 'webp' || outputFormat === 'gif')) {
       await svgToRaster({ inputPath, outputPath, params });
     }
     // Raster to SVG
     else if (
-      (inputFormat === 'png' || inputFormat === 'jpg' || inputFormat === 'jpeg') &&
+      (inputFormat === 'png' || inputFormat === 'jpg' || inputFormat === 'jpeg' || inputFormat === 'webp' || inputFormat === 'gif') &&
       outputFormat === 'svg'
     ) {
       await rasterToSvg({ inputPath, outputPath, params });
@@ -39,10 +39,10 @@ export async function convertFile({
     else if (outputFormat === 'pdf') {
       await toPdf({ inputPath, outputPath, params });
     }
-    // Raster to raster (PNG <-> JPG)
+    // Raster to raster (PNG/JPG/WebP/GIF)
     else if (
-      (inputFormat === 'png' || inputFormat === 'jpg' || inputFormat === 'jpeg') &&
-      (outputFormat === 'png' || outputFormat === 'jpg')
+      (inputFormat === 'png' || inputFormat === 'jpg' || inputFormat === 'jpeg' || inputFormat === 'webp' || inputFormat === 'gif') &&
+      (outputFormat === 'png' || outputFormat === 'jpg' || outputFormat === 'webp' || outputFormat === 'gif')
     ) {
       await svgToRaster({ inputPath, outputPath, params });
     }

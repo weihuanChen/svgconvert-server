@@ -8,7 +8,7 @@ const __dirname = path.dirname(__filename);
 config();
 
 export const CONFIG = {
-  port: parseInt(process.env.PORT || '3000', 10),
+  port: parseInt(process.env.PORT || process.env.WEB_PORT || '8080', 10),
   nodeEnv: process.env.NODE_ENV || 'development',
   tempDir: process.env.TEMP_DIR || path.join(__dirname, '../../temp'),
   maxFileSize: parseInt(process.env.MAX_FILE_SIZE || '20971520', 10), // 20MB default

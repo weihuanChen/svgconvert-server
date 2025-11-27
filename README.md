@@ -39,7 +39,7 @@ cd svgconvert-server
 docker-compose up -d
 ```
 
-3. Server will be running at `http://localhost:3000`
+3. Server will be running at `http://localhost:8080`
 
 ### Local Development
 
@@ -68,7 +68,7 @@ npm start
 
 ### Base URL
 ```
-http://localhost:3000
+http://localhost:8080
 ```
 
 ### Endpoints
@@ -107,7 +107,7 @@ Content-Type: multipart/form-data
 
 **Example Request (curl):**
 ```bash
-curl -X POST http://localhost:3000/api/upload \
+curl -X POST http://localhost:8080/api/upload \
   -F "file=@example.svg" \
   -F "outputFormat=png" \
   -F "width=800" \
@@ -151,7 +151,7 @@ GET /api/download/:taskId
 
 **Example:**
 ```bash
-curl http://localhost:3000/api/download/550e8400-e29b-41d4-a716-446655440000 \
+curl http://localhost:8080/api/download/550e8400-e29b-41d4-a716-446655440000 \
   -o converted.png
 ```
 
@@ -174,7 +174,7 @@ Environment variables can be set in `.env` file or via Docker environment:
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| PORT | 3000 | Server port |
+| PORT / WEB_PORT | 8080 | Server port (PORT takes precedence) |
 | NODE_ENV | development | Environment mode |
 | TEMP_DIR | ./temp | Temporary file storage directory |
 | MAX_FILE_SIZE | 20971520 | Maximum file size in bytes (20MB) |
@@ -193,7 +193,7 @@ The API supports multiple languages via the `Accept-Language` header:
 **Example:**
 ```bash
 curl -H "Accept-Language: en" \
-  http://localhost:3000/api/status/YOUR_TASK_ID
+  http://localhost:8080/api/status/YOUR_TASK_ID
 ```
 
 ## Project Structure
@@ -259,7 +259,7 @@ docker build -t svgconvert-server .
 ### Run Container
 ```bash
 docker run -d \
-  -p 3000:3000 \
+  -p 8080:8080 \
   --name svgconvert-server \
   svgconvert-server
 ```

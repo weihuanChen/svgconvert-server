@@ -5,12 +5,14 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
+ENV NODE_ENV=development
+
 # Copy package files
 COPY package*.json ./
 COPY tsconfig.json ./
 
-# Install dependencies (no lockfile in repo)
-RUN npm install
+# Install dependencies (force dev deps for tooling like TypeScript)
+RUN npm install --include=dev
 
 # Copy source code
 COPY src ./src
@@ -35,6 +37,8 @@ WORKDIR /app
 
 # Copy package files
 COPY package*.json ./
+
+ENV NODE_ENV=production
 
 # Install production dependencies only (omit dev deps)
 RUN npm install --omit=dev && \
